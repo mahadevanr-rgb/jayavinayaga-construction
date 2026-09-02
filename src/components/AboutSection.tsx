@@ -1,35 +1,43 @@
-import React from 'react';
-import { ArrowRight, CheckCircle2, MapPin, Compass, Hammer, ShieldCheck, Award } from 'lucide-react';
-import { COMPANY_DATA } from '../data/company';
+import React from "react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  MapPin,
+  Compass,
+  Hammer,
+  ShieldCheck,
+  Award,
+} from "lucide-react";
+import { COMPANY_DATA } from "../data/company";
 
 interface AboutSectionProps {
   onExploreServices: () => void;
 }
 
-export const AboutSection: React.FC<AboutSectionProps> = ({ onExploreServices }) => {
+export const AboutSection: React.FC<AboutSectionProps> = ({
+  onExploreServices,
+}) => {
   return (
     <section
       id="about"
       className="py-24 bg-[#0D0D0D] text-[#E5E5E5] relative border-b border-[#262626] overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Split Layout: Image on Left, Content on Right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
           {/* Left Column: Architectural Imagery Showcase */}
           <div className="lg:col-span-5 space-y-6">
             <div className="relative">
               {/* Primary Architectural Image */}
               <div className="relative overflow-hidden border border-[#262626] shadow-2xl bg-[#141414]">
                 <img
-                  src="https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=1200&q=80"
+                  src="https://www.gsussoftwares.com/_next/static/media/rajapalayam.bdebb9e5.png"
                   alt="Jayavinayaga Construction civil engineering and structural site work in Tamil Nadu"
                   className="w-full h-[460px] object-cover hover:scale-105 transition-transform duration-700 ease-out"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/90 via-transparent to-transparent" />
-                
+
                 {/* Image Overlay Label */}
                 <div className="absolute bottom-5 left-5 right-5 text-white">
                   <div className="flex items-center gap-2 text-xs font-bold text-[#C5A059] uppercase tracking-widest mb-1">
@@ -81,7 +89,6 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onExploreServices })
 
           {/* Right Column: Narrative, Eyebrow & Feature Cards */}
           <div className="lg:col-span-7 space-y-8 text-left">
-            
             {/* Eyebrow & Main Section Headline */}
             <div className="space-y-3">
               <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#C5A059] tracking-[0.2em] uppercase">
@@ -171,11 +178,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onExploreServices })
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </button>
             </div>
-
           </div>
-
         </div>
-
       </div>
     </section>
   );
