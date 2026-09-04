@@ -1,15 +1,26 @@
-import React from 'react';
-import { Building2, MapPin, Phone, Mail, ArrowUp, ArrowRight } from 'lucide-react';
-import { COMPANY_DATA, NAV_LINKS } from '../data/company';
+import React from "react";
+import {
+  Building2,
+  MapPin,
+  Phone,
+  Mail,
+  ArrowUp,
+  ArrowRight,
+} from "lucide-react";
+import { COMPANY_DATA, NAV_LINKS } from "../data/company";
+import logo from "../assets/logo/jayavinayaga-logo.png";
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
     e.preventDefault();
-    const targetId = href.replace('#', '');
+    const targetId = href.replace("#", "");
     const element = document.getElementById(targetId);
     if (element) {
       const navOffset = 80;
@@ -17,36 +28,34 @@ export const Footer: React.FC = () => {
       const offsetPosition = elementPosition + window.pageYOffset - navOffset;
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
   };
 
   return (
-    <footer id="main-footer" className="bg-[#0A0A0A] text-white border-t border-[#262626] pt-16 pb-12">
+    <footer
+      id="main-footer"
+      className="bg-[#0A0A0A] text-white border-t border-[#262626] pt-16 pb-12"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-14 border-b border-[#262626] text-left">
-          
           {/* Brand & Description Column */}
           <div className="lg:col-span-5 space-y-5">
+            {/* Company Logo */}
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 bg-[#C5A059] text-[#0A0A0A] flex items-center justify-center font-bold tracking-tighter border border-[#E5C583]/50">
-                <span className="text-lg font-serif">JV</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-base font-bold tracking-wider text-white uppercase font-sans">
-                  {COMPANY_DATA.name}
-                </span>
-                <span className="text-[10px] font-semibold tracking-[0.2em] text-[#C5A059] uppercase">
-                  Civil & Building Contractors
-                </span>
-              </div>
+              <img
+                src={logo}
+                alt="Jayavinayaga Construction"
+                className="h-12 sm:h-16 w-auto object-contain"
+              />
             </div>
 
             <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed max-w-md">
-              Delivering disciplined civil construction, bespoke residential homes, modern architectural villas, and commercial buildings across Rajapalayam and surrounding areas in Tamil Nadu.
+              Delivering disciplined civil construction, bespoke residential
+              homes, modern architectural villas, and commercial buildings
+              across Rajapalayam and surrounding areas in Tamil Nadu.
             </p>
 
             <div className="inline-flex items-center gap-2 text-xs text-neutral-400 bg-[#141414] px-3 py-1.5 border border-[#262626]">
@@ -92,7 +101,7 @@ export const Footer: React.FC = () => {
             <div className="pt-2">
               <a
                 href="#contact"
-                onClick={(e) => handleNavClick(e, '#contact')}
+                onClick={(e) => handleNavClick(e, "#contact")}
                 className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-[#C5A059] hover:text-[#D4B370] transition-colors"
               >
                 <span>Request Project Assessment</span>
@@ -100,7 +109,6 @@ export const Footer: React.FC = () => {
               </a>
             </div>
           </div>
-
         </div>
 
         {/* Bottom Bar: Copyright & Demo Disclaimer */}
@@ -108,7 +116,8 @@ export const Footer: React.FC = () => {
           <div>
             <p>© 2026 {COMPANY_DATA.name}. All rights reserved.</p>
             <p className="text-[11px] text-neutral-500 mt-0.5">
-              Website designed for demonstration purposes. Content models structured for {COMPANY_DATA.city}, {COMPANY_DATA.state}.
+              Website designed for demonstration purposes. Content models
+              structured for {COMPANY_DATA.city}, {COMPANY_DATA.state}.
             </p>
           </div>
 
@@ -122,7 +131,6 @@ export const Footer: React.FC = () => {
             <ArrowUp className="w-3.5 h-3.5" />
           </button>
         </div>
-
       </div>
     </footer>
   );
