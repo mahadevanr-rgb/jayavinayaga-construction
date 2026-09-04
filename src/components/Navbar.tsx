@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, Building2, Phone } from 'lucide-react';
-import { NAV_LINKS, COMPANY_DATA } from '../data/company';
+import React, { useState, useEffect } from "react";
+import { Menu, X, ArrowUpRight, Building2, Phone } from "lucide-react";
+import { NAV_LINKS, COMPANY_DATA } from "../data/company";
 
 interface NavbarProps {
   onOpenConsultation?: (serviceType?: string) => void;
@@ -9,7 +9,7 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,7 +20,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
       }
 
       // Track active section for highlight
-      const sections = ['home', 'about', 'services', 'projects', 'contact'];
+      const sections = ["home", "about", "services", "projects", "contact"];
       const scrollPosition = window.scrollY + 200;
 
       for (const section of sections) {
@@ -36,14 +36,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
     e.preventDefault();
     setMobileMenuOpen(false);
-    const targetId = href.replace('#', '');
+    const targetId = href.replace("#", "");
     const element = document.getElementById(targetId);
     if (element) {
       const navOffset = 80;
@@ -52,7 +55,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
   };
@@ -62,14 +65,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
       id="main-navbar"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#0A0A0A]/95 backdrop-blur-md border-b border-[#262626] py-3 shadow-2xl'
-          : 'bg-gradient-to-b from-[#0A0A0A]/95 via-[#0A0A0A]/60 to-transparent py-5'
+          ? "bg-[#0A0A0A]/95 backdrop-blur-md border-b border-[#262626] py-3 shadow-2xl"
+          : "bg-gradient-to-b from-[#0A0A0A]/95 via-[#0A0A0A]/60 to-transparent py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo Mark */}
-          <a
+          {/* <a
             href="#home"
             id="navbar-brand-logo"
             onClick={(e) => handleNavClick(e, '#home')}
@@ -86,6 +89,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
                 Construction · Rajapalayam
               </span>
             </div>
+          </a> */}
+          <a
+            href="#home"
+            id="navbar-brand-logo"
+            onClick={(e) => handleNavClick(e, "#home")}
+            className="flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A059] rounded"
+          >
+            <img
+              src="/src/assets/logo/jayavinayaga-logo.png"
+              alt="Jayavinayaga Construction - Rajapalayam"
+              className="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 hover:scale-105"
+            />
           </a>
 
           {/* Desktop Navigation */}
@@ -100,8 +115,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
                   onClick={(e) => handleNavClick(e, link.href)}
                   className={`px-3.5 py-1.5 text-xs uppercase tracking-widest font-semibold transition-colors duration-200 relative ${
                     isActive
-                      ? 'text-[#C5A059]'
-                      : 'text-neutral-300 hover:text-white'
+                      ? "text-[#C5A059]"
+                      : "text-neutral-300 hover:text-white"
                   }`}
                 >
                   {link.label}
@@ -119,7 +134,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
               id="navbar-cta-quote"
               href="#contact"
               onClick={(e) => {
-                handleNavClick(e, '#contact');
+                handleNavClick(e, "#contact");
                 if (onOpenConsultation) onOpenConsultation();
               }}
               className="inline-flex items-center gap-2 bg-[#C5A059] hover:bg-[#D4B370] text-[#0A0A0A] text-xs font-bold tracking-widest uppercase px-5 py-2.5 rounded-none transition-all duration-200 shadow-md hover:shadow-lg active:scale-95 group border border-[#E5C583]/50"
@@ -139,7 +154,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
               aria-label="Toggle navigation menu"
               aria-expanded={mobileMenuOpen}
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
@@ -159,7 +178,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
                 className={`py-2 text-sm uppercase tracking-wider font-semibold border-b border-[#1A1A1A] ${
-                  activeSection === link.id ? 'text-[#C5A059]' : 'text-neutral-300'
+                  activeSection === link.id
+                    ? "text-[#C5A059]"
+                    : "text-neutral-300"
                 }`}
               >
                 {link.label}
@@ -170,7 +191,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
                 id="mobile-nav-cta"
                 href="#contact"
                 onClick={(e) => {
-                  handleNavClick(e, '#contact');
+                  handleNavClick(e, "#contact");
                   if (onOpenConsultation) onOpenConsultation();
                 }}
                 className="w-full flex items-center justify-center gap-2 bg-[#C5A059] text-[#0A0A0A] text-xs font-bold uppercase tracking-wider py-3 px-4 transition-colors"
