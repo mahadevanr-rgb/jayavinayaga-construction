@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X, ArrowUpRight, Building2, Phone } from "lucide-react";
+import logoSrc from "../assets/logo/jayavinayaga-logo.png";
 import { NAV_LINKS, COMPANY_DATA } from "../data/company";
 
 interface NavbarProps {
@@ -97,7 +98,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
             className="flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A059] rounded"
           >
             <img
-              src="/src/assets/logo/jayavinayaga-logo.png"
+              src={logoSrc}
               alt="Jayavinayaga Construction - Rajapalayam"
               className="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 hover:scale-105"
             />
