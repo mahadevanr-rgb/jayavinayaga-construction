@@ -210,15 +210,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }
               </div>
 
               {/* Placeholder Disclaimer Box */}
-              <div className="p-4 bg-[#181818] border border-[#262626] text-xs text-neutral-400 space-y-1">
-                <div className="font-bold text-white flex items-center gap-1.5">
-                  <Building className="w-4 h-4 text-[#C5A059]" />
-                  <span>Demonstration Portfolio Notice</span>
-                </div>
-                <p>
-                  Contact details and company parameters are configurable via <code className="bg-[#0A0A0A] px-1 py-0.5 text-[#C5A059] font-mono text-[11px] border border-[#262626]">company.ts</code> to connect live business channels.
-                </p>
-              </div>
+              
 
             </div>
 
